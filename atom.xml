@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://example.com</id>
+    <title>Yuan</title>
+    <link href="http://example.com" />
+    <updated>2022-01-10T12:59:53.508Z</updated>
+    <entry>
+        <id>http://example.com/2022/01/10/hello-world/</id>
+        <title>Hello HongDeYuan</title>
+        <link rel="alternate" href="http://example.com/2022/01/10/hello-world/"/>
+        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hvbmdkZXl1YW4=&#34;&gt;HongDeYuan&lt;/span&gt;&lt;/p&gt;
+&lt;!-- hexo g -d  --&gt;
+
+</content>
+        <updated>2022-01-10T12:59:53.508Z</updated>
+    </entry>
+</feed>
