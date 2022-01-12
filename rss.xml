@@ -3,8 +3,8 @@
     <channel>
         <title>Yuan</title>
         <subtitle></subtitle>
-        <icon>http://example.com/images/favicon.ico</icon>
-        <link>http://example.com</link>
+        <icon>https://hongdeyuan.github.io/images/favicon.ico</icon>
+        <link>https://hongdeyuan.github.io</link>
         <author>
           <name>Jason</name>
         </author>
@@ -13,9 +13,9 @@
         <pubDate>Mon, 10 Jan 2022 20:59:53 +0800</pubDate>
         <lastBuildDate>Mon, 10 Jan 2022 20:59:53 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">http://example.com/2022/01/10/hello-world/</guid>
+            <guid isPermalink="true">https://hongdeyuan.github.io/2022/01/10/hello-world/</guid>
             <title>Hello HongDeYuan</title>
-            <link>http://example.com/2022/01/10/hello-world/</link>
+            <link>https://hongdeyuan.github.io/2022/01/10/hello-world/</link>
             <pubDate>Mon, 10 Jan 2022 20:59:53 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hvbmdkZXl1YW4=&#34;&gt;HongDeYuan&lt;/span&gt;&lt;/p&gt;
 &lt;!-- hexo g -d  --&gt;

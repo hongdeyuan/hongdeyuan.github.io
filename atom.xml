@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://example.com</id>
+    <id>https://hongdeyuan.github.io</id>
     <title>Yuan</title>
     <subtitle></subtitle>
-    <icon>http://example.com/images/favicon.ico</icon>
-    <link href="http://example.com" />
+    <icon>https://hongdeyuan.github.io/images/favicon.ico</icon>
+    <link href="https://hongdeyuan.github.io" />
     <author>
       <name>Jason</name>
     </author>
     <updated>2022-01-10T12:59:53.508Z</updated>
     <entry>
-        <id>http://example.com/2022/01/10/hello-world/</id>
+        <id>https://hongdeyuan.github.io/2022/01/10/hello-world/</id>
         <title>Hello HongDeYuan</title>
-        <link rel="alternate" href="http://example.com/2022/01/10/hello-world/"/>
+        <link rel="alternate" href="https://hongdeyuan.github.io/2022/01/10/hello-world/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hvbmdkZXl1YW4=&#34;&gt;HongDeYuan&lt;/span&gt;&lt;/p&gt;
 &lt;!-- hexo g -d  --&gt;
 
