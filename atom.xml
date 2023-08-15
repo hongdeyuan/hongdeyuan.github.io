@@ -8,13 +8,12 @@
     <author>
       <name>Jason</name>
     </author>
-    <updated>2022-03-20T07:29:53.498Z</updated>
+    <updated>2023-08-14T16:00:01.000Z</updated>
     <entry>
-        <id>https://hongdeyuan.github.io/2022/03/20/setstate%E5%BC%82%E6%AD%A5&amp;%E5%90%8C%E6%AD%A5/</id>
-        <title></title>
-        <link rel="alternate" href="https://hongdeyuan.github.io/2022/03/20/setstate%E5%BC%82%E6%AD%A5&amp;%E5%90%8C%E6%AD%A5/"/>
-        <content type="html">&lt;h2 id=&#34;06-setstate-是异步还是同步setstate-之后发生了哪些事情&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#06-setstate-是异步还是同步setstate-之后发生了哪些事情&#34;&gt;#&lt;/a&gt; 06 setState 是异步还是同步，setState 之后发生了哪些事情&lt;/h2&gt;
-&lt;ul&gt;
+        <id>https://hongdeyuan.github.io/2023/08/15/setstate%E5%BC%82%E6%AD%A5&amp;%E5%90%8C%E6%AD%A5/</id>
+        <title>setState 是异步还是同步，setState 之后发生了哪些事情</title>
+        <link rel="alternate" href="https://hongdeyuan.github.io/2023/08/15/setstate%E5%BC%82%E6%AD%A5&amp;%E5%90%8C%E6%AD%A5/"/>
+        <content type="html">&lt;ul&gt;
 &lt;li&gt;setState 的 “异步” 并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值，形式了所谓的 “异步”，当然可以通过第二个参数 setState (partialState, callback) 中的 callback 拿到更新后的结果。&lt;/li&gt;
 &lt;li&gt;setState 的批量更新优化也是建立在 “异步”（合成事件、钩子函数）之上的，在原生事件和 setTimeout 中不会批量更新，在 “异步” 中如果对同一个值进行多次 setState ， setState 的批量更新策略会对其进行覆盖，取最后一次的执行，如果是同时 setState 多个不同的值，在更新时会对其进行合并批量更新。&lt;/li&gt;
 &lt;/ul&gt;
@@ -39,7 +38,21 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <updated>2022-03-20T07:29:53.498Z</updated>
+        <category term="React" scheme="https://hongdeyuan.github.io/categories/React/" />
+        <category term="基础" scheme="https://hongdeyuan.github.io/tags/%E5%9F%BA%E7%A1%80/" />
+        <updated>2023-08-14T16:00:01.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://hongdeyuan.github.io/2023/01/01/hello-world/</id>
+        <title>Hello HongDeYuan</title>
+        <link rel="alternate" href="https://hongdeyuan.github.io/2023/01/01/hello-world/"/>
+        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hvbmdkZXl1YW4=&#34;&gt;HongDeYuan&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;!-- &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2RvY3MuaHVydXFpbmcuY24v&#34;&gt;http://docs.huruqing.cn/&lt;/span&gt; --&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;!-- hexo g -d  --&amp;gt;&lt;/p&gt;
+</content>
+        <category term="Hello" scheme="https://hongdeyuan.github.io/categories/Hello/" />
+        <category term="ME" scheme="https://hongdeyuan.github.io/tags/ME/" />
+        <updated>2022-12-31T16:00:01.000Z</updated>
     </entry>
     <entry>
         <id>https://hongdeyuan.github.io/2022/01/12/note/markdown/</id>
@@ -255,15 +268,5 @@ alt=&amp;quot;IMAGE ALT TEXT HERE&amp;quot; width=&amp;quot;240&amp;quot; height
         <category term="杂谈" scheme="https://hongdeyuan.github.io/categories/note/" />
         <category term="教程" scheme="https://hongdeyuan.github.io/tags/%E6%95%99%E7%A8%8B/" />
         <updated>2022-01-12T15:31:06.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://hongdeyuan.github.io/2022/01/10/hello-world/</id>
-        <title>Hello HongDeYuan</title>
-        <link rel="alternate" href="https://hongdeyuan.github.io/2022/01/10/hello-world/"/>
-        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hvbmdkZXl1YW4=&#34;&gt;HongDeYuan&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&amp;lt;!-- &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2RvY3MuaHVydXFpbmcuY24v&#34;&gt;http://docs.huruqing.cn/&lt;/span&gt; --&amp;gt;&lt;/p&gt;
-&lt;p&gt;&amp;lt;!-- hexo g -d  --&amp;gt;&lt;/p&gt;
-</content>
-        <updated>2022-01-10T12:59:53.508Z</updated>
     </entry>
 </feed>

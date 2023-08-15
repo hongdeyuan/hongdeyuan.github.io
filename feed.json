@@ -7,12 +7,26 @@
     "home_page_url": "https://hongdeyuan.github.io",
     "items": [
         {
-            "id": "https://hongdeyuan.github.io/2022/03/20/setstate%E5%BC%82%E6%AD%A5&%E5%90%8C%E6%AD%A5/",
-            "url": "https://hongdeyuan.github.io/2022/03/20/setstate%E5%BC%82%E6%AD%A5&%E5%90%8C%E6%AD%A5/",
-            "title": "",
-            "date_published": "2022-03-20T07:29:53.498Z",
-            "content_html": "<h2 id=\"06-setstate-是异步还是同步setstate-之后发生了哪些事情\"><a class=\"anchor\" href=\"#06-setstate-是异步还是同步setstate-之后发生了哪些事情\">#</a> 06 setState 是异步还是同步，setState 之后发生了哪些事情</h2>\n<ul>\n<li>setState 的 “异步” 并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值，形式了所谓的 “异步”，当然可以通过第二个参数 setState (partialState, callback) 中的 callback 拿到更新后的结果。</li>\n<li>setState 的批量更新优化也是建立在 “异步”（合成事件、钩子函数）之上的，在原生事件和 setTimeout 中不会批量更新，在 “异步” 中如果对同一个值进行多次 setState ， setState 的批量更新策略会对其进行覆盖，取最后一次的执行，如果是同时 setState 多个不同的值，在更新时会对其进行合并批量更新。</li>\n</ul>\n<pre><code>async getList() &#123;\n  let res = await axios.get('post/list');\n  this.setState(&#123;list: res.result&#125;);\n  console.log(this.state.list);// 此时是同步的，在非时间函数是同步的\n&#125;\n</code></pre>\n<pre><code>add () &#123;\n  this.setState(&#123;count: this.state.count + 1&#125;);\n  console.lgo(this.state.count); //  此时拿到的是 更新之前的值，在事件函数是异步的\n&#125;\n</code></pre>\n<ul>\n<li>总结：\n<ol>\n<li>在一个事件绑定的函数，不管执行多少次 setState，他们也会在函数执行结束之后，被归结为一次重新渲染（用以优化性能），这个等到最后一起执行的行为成为：“批量更新”</li>\n<li>React 事件函数使用，像这样使用形式绑定 <span class=\"exturl\" data-url=\"aHR0cDovL3RoaXMueHh4\">this.xxx</span> = this.xxx.bind (this) ; 这里批量操作会发生异步表现；是因为 React 知道什么时候退出该事件，什么时候进行批量操作（Batch update）</li>\n<li>其他情况如上面的，获取 post/list 情况，或这样使用 addEventListener 绑定，函数挣脱了 React 的控制， React 不知道什么时候执行批量操作，setState 就会是同步的；</li>\n</ol>\n</li>\n</ul>\n",
-            "tags": []
+            "id": "https://hongdeyuan.github.io/2023/08/15/setstate%E5%BC%82%E6%AD%A5&%E5%90%8C%E6%AD%A5/",
+            "url": "https://hongdeyuan.github.io/2023/08/15/setstate%E5%BC%82%E6%AD%A5&%E5%90%8C%E6%AD%A5/",
+            "title": "setState 是异步还是同步，setState 之后发生了哪些事情",
+            "date_published": "2023-08-14T16:00:01.000Z",
+            "content_html": "<ul>\n<li>setState 的 “异步” 并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值，形式了所谓的 “异步”，当然可以通过第二个参数 setState (partialState, callback) 中的 callback 拿到更新后的结果。</li>\n<li>setState 的批量更新优化也是建立在 “异步”（合成事件、钩子函数）之上的，在原生事件和 setTimeout 中不会批量更新，在 “异步” 中如果对同一个值进行多次 setState ， setState 的批量更新策略会对其进行覆盖，取最后一次的执行，如果是同时 setState 多个不同的值，在更新时会对其进行合并批量更新。</li>\n</ul>\n<pre><code>async getList() &#123;\n  let res = await axios.get('post/list');\n  this.setState(&#123;list: res.result&#125;);\n  console.log(this.state.list);// 此时是同步的，在非时间函数是同步的\n&#125;\n</code></pre>\n<pre><code>add () &#123;\n  this.setState(&#123;count: this.state.count + 1&#125;);\n  console.lgo(this.state.count); //  此时拿到的是 更新之前的值，在事件函数是异步的\n&#125;\n</code></pre>\n<ul>\n<li>总结：\n<ol>\n<li>在一个事件绑定的函数，不管执行多少次 setState，他们也会在函数执行结束之后，被归结为一次重新渲染（用以优化性能），这个等到最后一起执行的行为成为：“批量更新”</li>\n<li>React 事件函数使用，像这样使用形式绑定 <span class=\"exturl\" data-url=\"aHR0cDovL3RoaXMueHh4\">this.xxx</span> = this.xxx.bind (this) ; 这里批量操作会发生异步表现；是因为 React 知道什么时候退出该事件，什么时候进行批量操作（Batch update）</li>\n<li>其他情况如上面的，获取 post/list 情况，或这样使用 addEventListener 绑定，函数挣脱了 React 的控制， React 不知道什么时候执行批量操作，setState 就会是同步的；</li>\n</ol>\n</li>\n</ul>\n",
+            "tags": [
+                "React",
+                "基础"
+            ]
+        },
+        {
+            "id": "https://hongdeyuan.github.io/2023/01/01/hello-world/",
+            "url": "https://hongdeyuan.github.io/2023/01/01/hello-world/",
+            "title": "Hello HongDeYuan",
+            "date_published": "2022-12-31T16:00:01.000Z",
+            "content_html": "<p>Welcome to <span class=\"exturl\" data-url=\"aHR0cHM6Ly9naXRodWIuY29tL2hvbmdkZXl1YW4=\">HongDeYuan</span></p>\n<p>&lt;!-- <span class=\"exturl\" data-url=\"aHR0cDovL2RvY3MuaHVydXFpbmcuY24v\">http://docs.huruqing.cn/</span> --&gt;</p>\n<p>&lt;!-- hexo g -d  --&gt;</p>\n",
+            "tags": [
+                "Hello",
+                "ME"
+            ]
         },
         {
             "id": "https://hongdeyuan.github.io/2022/01/12/note/markdown/",
@@ -24,14 +38,6 @@
                 "杂谈",
                 "教程"
             ]
-        },
-        {
-            "id": "https://hongdeyuan.github.io/2022/01/10/hello-world/",
-            "url": "https://hongdeyuan.github.io/2022/01/10/hello-world/",
-            "title": "Hello HongDeYuan",
-            "date_published": "2022-01-10T12:59:53.508Z",
-            "content_html": "<p>Welcome to <span class=\"exturl\" data-url=\"aHR0cHM6Ly9naXRodWIuY29tL2hvbmdkZXl1YW4=\">HongDeYuan</span></p>\n<p>&lt;!-- <span class=\"exturl\" data-url=\"aHR0cDovL2RvY3MuaHVydXFpbmcuY24v\">http://docs.huruqing.cn/</span> --&gt;</p>\n<p>&lt;!-- hexo g -d  --&gt;</p>\n",
-            "tags": []
         }
     ]
 }
