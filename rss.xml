@@ -10,25 +10,47 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Mon, 10 Jan 2022 20:59:53 +0800</pubDate>
-        <lastBuildDate>Mon, 10 Jan 2022 20:59:53 +0800</lastBuildDate>
+        <pubDate>Sun, 20 Mar 2022 15:29:53 +0800</pubDate>
+        <lastBuildDate>Sun, 20 Mar 2022 15:29:53 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">https://hongdeyuan.github.io/2022/01/10/hello-world/</guid>
-            <title>Hello HongDeYuan</title>
-            <link>https://hongdeyuan.github.io/2022/01/10/hello-world/</link>
-            <pubDate>Mon, 10 Jan 2022 20:59:53 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hvbmdkZXl1YW4=&#34;&gt;HongDeYuan&lt;/span&gt;&lt;/p&gt;
-&lt;!-- hexo g -d  --&gt;
-
+            <guid isPermalink="true">https://hongdeyuan.github.io/2022/03/20/setstate%E5%BC%82%E6%AD%A5&amp;%E5%90%8C%E6%AD%A5/</guid>
+            <title></title>
+            <link>https://hongdeyuan.github.io/2022/03/20/setstate%E5%BC%82%E6%AD%A5&amp;%E5%90%8C%E6%AD%A5/</link>
+            <pubDate>Sun, 20 Mar 2022 15:29:53 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;06-setstate-是异步还是同步setstate-之后发生了哪些事情&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#06-setstate-是异步还是同步setstate-之后发生了哪些事情&#34;&gt;#&lt;/a&gt; 06 setState 是异步还是同步，setState 之后发生了哪些事情&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;setState 的 “异步” 并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值，形式了所谓的 “异步”，当然可以通过第二个参数 setState (partialState, callback) 中的 callback 拿到更新后的结果。&lt;/li&gt;
+&lt;li&gt;setState 的批量更新优化也是建立在 “异步”（合成事件、钩子函数）之上的，在原生事件和 setTimeout 中不会批量更新，在 “异步” 中如果对同一个值进行多次 setState ， setState 的批量更新策略会对其进行覆盖，取最后一次的执行，如果是同时 setState 多个不同的值，在更新时会对其进行合并批量更新。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;async getList() &amp;#123;
+  let res = await axios.get(&#39;post/list&#39;);
+  this.setState(&amp;#123;list: res.result&amp;#125;);
+  console.log(this.state.list);// 此时是同步的，在非时间函数是同步的
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;add () &amp;#123;
+  this.setState(&amp;#123;count: this.state.count + 1&amp;#125;);
+  console.lgo(this.state.count); //  此时拿到的是 更新之前的值，在事件函数是异步的
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;总结：
+&lt;ol&gt;
+&lt;li&gt;在一个事件绑定的函数，不管执行多少次 setState，他们也会在函数执行结束之后，被归结为一次重新渲染（用以优化性能），这个等到最后一起执行的行为成为：“批量更新”&lt;/li&gt;
+&lt;li&gt;React 事件函数使用，像这样使用形式绑定 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3RoaXMueHh4&#34;&gt;this.xxx&lt;/span&gt; = this.xxx.bind (this) ; 这里批量操作会发生异步表现；是因为 React 知道什么时候退出该事件，什么时候进行批量操作（Batch update）&lt;/li&gt;
+&lt;li&gt;其他情况如上面的，获取 post/list 情况，或这样使用 addEventListener 绑定，函数挣脱了 React 的控制， React 不知道什么时候执行批量操作，setState 就会是同步的；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://hongdeyuan.github.io/2018/07/24/markdown/</guid>
+            <guid isPermalink="true">https://hongdeyuan.github.io/2022/01/12/note/markdown/</guid>
             <title>Markdown Style test</title>
-            <link>https://hongdeyuan.github.io/2018/07/24/markdown/</link>
+            <link>https://hongdeyuan.github.io/2022/01/12/note/markdown/</link>
             <category term="杂谈" scheme="https://hongdeyuan.github.io/categories/note/" />
             <category term="教程" scheme="https://hongdeyuan.github.io/tags/%E6%95%99%E7%A8%8B/" />
-            <pubDate>Tue, 24 Jul 2018 23:31:06 +0800</pubDate>
+            <pubDate>Wed, 12 Jan 2022 23:31:06 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;This post is originated from &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vYXBhY2tlZXIvNDE1OTI2OA==&#34;&gt;here&lt;/span&gt; and is used for testing markdown style. This post contains nearly every markdown usage. Make sure all the markdown elements below show up correctly.&lt;/p&gt;
 &lt;p&gt;&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;hr /&gt;
@@ -235,6 +257,16 @@ This line is only separated by a single newline, so it&#39;s a separate line in 
 alt=&amp;quot;IMAGE ALT TEXT HERE&amp;quot; width=&amp;quot;240&amp;quot; height=&amp;quot;180&amp;quot; border=&amp;quot;10&amp;quot; /&amp;gt;&amp;lt;/a&amp;gt;&lt;/p&gt;
 &lt;p&gt;Pure markdown version:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=ARted4RniaU&#34;&gt;&lt;img data-src=&#34;https://img.youtube.com/vi/ARted4RniaU/0.jpg&#34; alt=&#34;IMAGE ALT TEXT HERE&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://hongdeyuan.github.io/2022/01/10/hello-world/</guid>
+            <title>Hello HongDeYuan</title>
+            <link>https://hongdeyuan.github.io/2022/01/10/hello-world/</link>
+            <pubDate>Mon, 10 Jan 2022 20:59:53 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hvbmdkZXl1YW4=&#34;&gt;HongDeYuan&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;!-- &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2RvY3MuaHVydXFpbmcuY24v&#34;&gt;http://docs.huruqing.cn/&lt;/span&gt; --&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;!-- hexo g -d  --&amp;gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
