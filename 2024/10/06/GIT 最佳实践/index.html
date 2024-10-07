@@ -190,14 +190,14 @@
           <!-- 文章标题 -->
           <h1 class="post-title">GIT 最佳实践</h1>
           <div class="last-updated">
-            Last updated: 2024-10-06 14:18:33
+            Last updated: 2024-10-07 08:47:21
           </div>
           <!-- 文章 -->
           <p>GIT 本质是一个数据库，用来存代码的</p>
 <p>工作区：一个沙箱环境，GIT 不负责管理，你尽管在沙箱里面对文件进行操作<br>暂存区：工作区文件变动先不急着提交，暂存到一定数量，在提交到版本库</p>
-<h2 id="配置用户"><a href="#配置用户" class="headerlink" title="配置用户"></a>配置用户</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="variable language_">global</span> user.<span class="property">name</span> <span class="string">&quot;your name&quot;</span></span><br><span class="line">git config --<span class="variable language_">global</span> user.<span class="property">email</span> <span class="string">&quot;your email&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置用户"><a href="#配置用户" class="headerlink" title="配置用户"></a>配置用户</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br><span class="line">git config --global user.email &quot;your email&quot;</span><br></pre></td></tr></table></figure>
 
-<h2 id="alias-别名"><a href="#alias-别名" class="headerlink" title="alias 别名"></a>alias 别名</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看项目分支图,</span><br><span class="line">git config --<span class="variable language_">global</span> alias.<span class="property">lo</span> <span class="string">&quot;log --oneline --decorate --graph --all&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="alias-别名"><a href="#alias-别名" class="headerlink" title="alias 别名"></a>alias 别名</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看项目分支图,</span><br><span class="line">git config --global alias.lo &quot;log --oneline --decorate --graph --all&quot;</span><br></pre></td></tr></table></figure>
 
 <h2 id="git-文件结构"><a href="#git-文件结构" class="headerlink" title=".git 文件结构"></a>.git 文件结构</h2><ul>
 <li>hooks：提交代码前，检查代码格式……</li>
@@ -210,9 +210,9 @@
 <li>HEAD：指示目前被检出的分支</li>
 <li>index：文件保存暂存区信息</li>
 </ul>
-<h2 id="修改远程仓库"><a href="#修改远程仓库" class="headerlink" title="修改远程仓库"></a>修改远程仓库</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># way <span class="number">1</span></span><br><span class="line">git remote set-url origin [url]</span><br><span class="line"># way <span class="number">2</span></span><br><span class="line">git remote rm origin</span><br><span class="line">git remote add origin [url]</span><br><span class="line"># way3</span><br><span class="line">修改 config 文件</span><br></pre></td></tr></table></figure>
+<h2 id="修改远程仓库"><a href="#修改远程仓库" class="headerlink" title="修改远程仓库"></a>修改远程仓库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># way 1</span><br><span class="line">git remote set-url origin [url]</span><br><span class="line"># way 2</span><br><span class="line">git remote rm origin</span><br><span class="line">git remote add origin [url]</span><br><span class="line"># way3</span><br><span class="line">修改 config 文件</span><br></pre></td></tr></table></figure>
 
-<h1 id="提交规范"><a href="#提交规范" class="headerlink" title="提交规范"></a>提交规范</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">type</span>(scope): subject</span><br><span class="line"># 例如</span><br><span class="line"><span class="title function_">feat</span>(miniprogram): 增加了小程序模板消息相关功能</span><br></pre></td></tr></table></figure>
+<h2 id="提交规范"><a href="#提交规范" class="headerlink" title="提交规范"></a>提交规范</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type(scope): subject</span><br><span class="line"># 例如</span><br><span class="line">feat(miniprogram): 增加了小程序模板消息相关功能</span><br></pre></td></tr></table></figure>
 
 <p>通常type有如下：</p>
 <ul>
@@ -232,7 +232,7 @@
               <!-- 文章tags -->
               
             </div>
-            <p class="motto">😊</p>
+            <p class="motto"></p>
         </article>
         <!-- 评论 -->
         <div id="vcomments"></div>
@@ -261,7 +261,7 @@
               </span>
             </cosy-tooltip>
             <!-- 文章toc -->
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7"><span class="toc-number">1.</span> <span class="toc-text">配置用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#alias-%E5%88%AB%E5%90%8D"><span class="toc-number">2.</span> <span class="toc-text">alias 别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">.git 文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">修改远程仓库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83"><span class="toc-number"></span> <span class="toc-text">提交规范</span></a>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7"><span class="toc-number">1.</span> <span class="toc-text">配置用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#alias-%E5%88%AB%E5%90%8D"><span class="toc-number">2.</span> <span class="toc-text">alias 别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">.git 文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">修改远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83"><span class="toc-number">5.</span> <span class="toc-text">提交规范</span></a></li></ol>
           </div>
         </div>
       </cosy-drag-box>
@@ -272,7 +272,7 @@
 
 <script>
   window.page = {
-    use: 'katex'
+    use: 'katex,mermaid,valine'
   }
   window.katex = {
     enable: "",
@@ -286,11 +286,11 @@
   }
   window.valine = {
     enable: "",
-    appId: 'yourValineAppId',
-    appKey: 'yourValineAppKey',
+    appId: 'mxk96wUESBFgB3CEmMRJE1qr-gzGzoHsz',
+    appKey: '6zaYb3Ita380GoUqsqMbKxPv',
     avatar: 'monsterid',
     cdn: '//unpkg.com/valine@latest/dist/Valine.min.js',
-    serverURLs: ''
+    serverURLs: 'https://mxk96wue.lc-cn-n1-shared.com'
   };
   window.twikoo = {
     enable: "",
