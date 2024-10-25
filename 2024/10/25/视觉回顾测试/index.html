@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    视觉回归测试
+  </title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Jason">
+  <link rel="canonical" href="https://hongdeyuan.github.io/2024/10/25/%E8%A7%86%E8%A7%89%E5%9B%9E%E9%A1%BE%E6%B5%8B%E8%AF%95/">
+  
+  
+  <link rel="icon" type="image/svg" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 10l7.383 7.418c.823.82.823 2.148 0 2.967a2.11 2.11 0 0 1-2.976 0L10 13"></path><path d="M6.293 15.293l-2.586-2.586a1 1 0 0 1 0-1.414l7.586-7.586a1 1 0 0 1 1.414 0l2.586 2.586a1 1 0 0 1 0 1.414l-7.586 7.586a1 1 0 0 1-1.414 0z"></path></g></svg>'>
+  
+  
+  
+<link rel="stylesheet" href="/css/b4c95347.css">
+
+  <script>window.i18n = {"tip-status-done":"Done","tip-status-default":"All","tip-status-todo":"Todo","tip-status-doing":"Doing","tip-status-other":"Other","text-select":"Select","text-move":"Move","text-esc":"Exit","January":"January","February":"February","March":"March","April":"April","May":"May","June":"June","July":"July","August":"August","September":"September","October":"October","November":"November","December":"December"}</script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body id="app">
+  <aside id="aside-box" class="left-aside">
+    <div class="header">
+      
+<link rel="stylesheet" href="/css/61875ce9.css">
+
+<div class="profile">
+  <a class="badge" href="/">
+    <span>Hi</span>
+    <span>Jason</span>
+  </a>
+  <cosy-tooltip id="left-aside-button" placement="right">
+    <span slot="content">
+      <span>Show / Hide Left Navigation</span>
+      <cosy-short-key>[</cosy-short-key>
+    </span>
+    <cosy-icon>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20">
+        <g fill="none">
+          <path d="M16 4c1.104-.019 2 .896 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12zm1 2a1 1 0 0 0-1-1h-2.995v10H16a1 1 0 0 0 1-1V6zm-4.995 9V5H4.001a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8.004z" fill="currentColor"></path>
+        </g>
+      </svg>
+    </cosy-icon>
+  </cosy-tooltip>
+</div>
+
+<script src="/js/69622cae.js"></script>
+
+      
+
+
+<cosy-search id="post-search" placeholder="Search">
+  <div slot="short-key">
+    <cosy-short-key>⌘</cosy-short-key>
+    <cosy-short-key>K</cosy-short-key>
+  </div>
+</cosy-search>
+
+
+<script>
+  window.algolia = {
+    appId: "Y9KIWLJR92",
+    SearchOnlyAPIKey: "2585e1970054fbcd4a4333e62fe6cda5"
+  }
+</script>
+
+
+<script src="/js/0a6f193b.js"></script>
+
+    </div>
+    <div class="aside-category">
+      
+<link rel="stylesheet" href="/css/db04a759.css">
+
+
+<nav class="category-nav cosy-scrollbar">
+  <ul><li data-path="archives">
+        <a href="/archives">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20"><g fill="none"><path d="M3.5 3A1.5 1.5 0 0 0 2 4.5v4A1.5 1.5 0 0 0 3.5 10h9A1.5 1.5 0 0 0 14 8.5v-4A1.5 1.5 0 0 0 12.5 3h-9zM3 4.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-4zm.5 6.5A1.5 1.5 0 0 0 2 12.5v4A1.5 1.5 0 0 0 3.5 18h9a1.5 1.5 0 0 0 1.5-1.5v-4a1.5 1.5 0 0 0-1.5-1.5h-9zM3 12.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-4zm14-.063a2.003 2.003 0 0 1-2.5-1.937A2 2 0 0 1 16 8.563a2.005 2.005 0 0 1 1 0a2 2 0 0 1 0 3.874zM16.5 3a.5.5 0 0 1 .5.5v4.041a3.02 3.02 0 0 0-1 0V3.5a.5.5 0 0 1 .5-.5zm0 10.5c-.17 0-.337-.014-.5-.041V17.5a.5.5 0 0 0 1 0v-4.041c-.163.027-.33.041-.5.041z" fill="currentColor"></path></g></svg>
+          <div class="ellipsis">Archives</div>
+        </a>
+      </li><li data-path="cosy-roadmap">
+        <a href="/cosy-roadmap">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20"><g fill="none"><path d="M9.384 2a1 1 0 0 0-.966.742L4.616 17H2.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-2.116L11.582 2.742A1 1 0 0 0 10.616 2H9.384zM5.651 17l.8-3H11.5a.5.5 0 0 0 0-1H6.717l.534-2H10.5a.5.5 0 0 0 0-1H7.517l1.867-7h1.232l3.733 14H5.651z" fill="currentColor"></path></g></svg>
+          <div class="ellipsis">Roadmap</div>
+        </a>
+      </li><li data-path="cosy-resume">
+        <a href="/cosy-resume">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20"><g fill="none"><path d="M8.5 4.498a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0zm1.5-2.5a2.5 2.5 0 0 0-2.43 3.086L5.471 4.15a1.761 1.761 0 0 0-2.317.88c-.4.882-.008 1.917.877 2.31L7 8.662v2.287l-1.877 4.645a1.75 1.75 0 0 0 3.245 1.311l1.556-3.849a.073.073 0 0 1 .028-.038a.086.086 0 0 1 .046-.012c.02 0 .035.005.046.012a.074.074 0 0 1 .028.038l1.555 3.849a1.75 1.75 0 0 0 3.245-1.311L13 10.96V8.662l2.968-1.322a1.74 1.74 0 0 0 .877-2.31a1.761 1.761 0 0 0-2.317-.88l-2.097.934a2.5 2.5 0 0 0-2.43-3.086zM4.065 5.444a.761.761 0 0 1 1-.38l3.918 1.744a2.5 2.5 0 0 0 2.034 0l3.918-1.744a.761.761 0 0 1 1 .38a.739.739 0 0 1-.373.983l-2.969 1.321a1 1 0 0 0-.593.914v2.298a1 1 0 0 0 .073.375l1.872 4.633a.75.75 0 0 1-1.39.562l-1.556-3.849c-.364-.9-1.639-.9-2.003 0l-1.555 3.85a.75.75 0 1 1-1.39-.562l1.876-4.646A1 1 0 0 0 8 10.95V8.662a1 1 0 0 0-.593-.914L4.438 6.427a.739.739 0 0 1-.373-.983z" fill="currentColor"></path></g></svg>
+          <div class="ellipsis">Resume</div>
+        </a>
+      </li></ul>
+  <ul></ul>
+</nav>
+
+
+<script src="/js/066f8989.js"></script>
+
+    </div>
+    <div class="bottom">
+      <cosy-tooltip id="button-preference" placement="right">
+        <span slot="content">
+          <span>Preference</span>
+          <cosy-short-key>⌘</cosy-short-key>
+          <cosy-short-key>p</cosy-short-key>
+        </span>
+        <cosy-icon bordered id="button-about-cosy-theme">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+            <g fill="none">
+              <path d="M8 6a2 2 0 1 0 0 4a2 2 0 0 0 0-4zM7 8a1 1 0 1 1 2 0a1 1 0 0 1-2 0zm3.618-3.602a.708.708 0 0 1-.824-.567l-.26-1.416a.354.354 0 0 0-.275-.282a6.072 6.072 0 0 0-2.519 0a.354.354 0 0 0-.275.282l-.259 1.416a.71.71 0 0 1-.936.538l-1.359-.484a.355.355 0 0 0-.382.095c-.569.627-1 1.367-1.262 2.173a.352.352 0 0 0 .108.378l1.102.931a.704.704 0 0 1 0 1.076l-1.102.931a.352.352 0 0 0-.108.378A5.986 5.986 0 0 0 3.53 12.02a.355.355 0 0 0 .382.095l1.36-.484a.708.708 0 0 1 .936.538l.258 1.416c.026.14.135.252.275.281a6.075 6.075 0 0 0 2.52 0a.353.353 0 0 0 .274-.281l.26-1.416a.71.71 0 0 1 .936-.538l1.359.484c.135.048.286.01.382-.095c.569-.627 1-1.367 1.262-2.173a.352.352 0 0 0-.108-.378l-1.102-.931a.703.703 0 0 1 0-1.076l1.102-.931a.352.352 0 0 0 .108-.378A5.985 5.985 0 0 0 12.47 3.98a.355.355 0 0 0-.382-.095l-1.36.484a.71.71 0 0 1-.111.03zm-6.62.58l.937.333a1.71 1.71 0 0 0 2.255-1.3l.177-.97a5.105 5.105 0 0 1 1.265 0l.178.97a1.708 1.708 0 0 0 2.255 1.3L12 4.977c.255.334.467.698.63 1.084l-.754.637a1.704 1.704 0 0 0 0 2.604l.755.637a4.99 4.99 0 0 1-.63 1.084l-.937-.334a1.71 1.71 0 0 0-2.255 1.3l-.178.97a5.099 5.099 0 0 1-1.265 0l-.177-.97a1.708 1.708 0 0 0-2.255-1.3L4 11.023a4.987 4.987 0 0 1-.63-1.084l.754-.638a1.704 1.704 0 0 0 0-2.603l-.755-.637c.164-.386.376-.75.63-1.084z" fill="currentColor"></path>
+            </g>
+          </svg>
+        </cosy-icon>
+      </cosy-tooltip>
+    </div>
+  </aside>
+  <main>
+    
+<link rel="stylesheet" href="/css/4dbc8f91.css">
+
+
+<div class="post-container">
+  <header>
+    <div class="left">
+      
+<link rel="stylesheet" href="/css/7d333f9e.css">
+
+<nav class="breadcrumb">
+  <section>
+    <cosy-tooltip placement="bottom-left">
+      <span slot="content"><span>Home</span>
+        <cosy-short-key>⌘</cosy-short-key>
+        <cosy-short-key>H</cosy-short-key>
+      </span>
+      <cosy-icon href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20">
+          <g fill="none">
+            <path d="M8.998 2.388a1.5 1.5 0 0 1 2.005 0l5.5 4.942A1.5 1.5 0 0 1 17 8.445V15.5a1.5 1.5 0 0 1-1.5 1.5H13a1.5 1.5 0 0 1-1.5-1.5V12a.5.5 0 0 0-.5-.5H9a.5.5 0 0 0-.5.5v3.5A1.5 1.5 0 0 1 7 17H4.5A1.5 1.5 0 0 1 3 15.5V8.445c0-.425.18-.83.498-1.115l5.5-4.942zm1.336.744a.5.5 0 0 0-.668 0l-5.5 4.942A.5.5 0 0 0 4 8.445V15.5a.5.5 0 0 0 .5.5H7a.5.5 0 0 0 .5-.5V12A1.5 1.5 0 0 1 9 10.5h2a1.5 1.5 0 0 1 1.5 1.5v3.5a.5.5 0 0 0 .5.5h2.5a.5.5 0 0 0 .5-.5V8.445a.5.5 0 0 0-.166-.371l-5.5-4.942z" fill="currentColor"></path>
+          </g>
+        </svg>
+      </cosy-icon>
+    </cosy-tooltip>
+    
+    
+    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20">
+      <g fill="none">
+        <path d="M7.733 4.207a.75.75 0 0 1 1.06.026l5.001 5.25a.75.75 0 0 1 0 1.035l-5 5.25a.75.75 0 1 1-1.087-1.034L12.216 10l-4.51-4.734a.75.75 0 0 1 .027-1.06z" fill="currentColor"></path>
+      </g>
+    </svg>
+    <span class="ellipsis">
+      视觉回归测试
+    </span>
+    
+  </section>
+</nav>
+
+
+<script src="/js/31d6cfe0.js"></script>
+
+    </div>
+    <div class="right">
+      
+        <cosy-tooltip id="toc-show-button" placement="left">
+          <span slot="content">
+            <span>Show / Hide Table of Contents</span>
+            <cosy-short-key>]</cosy-short-key>
+          </span>
+          <cosy-icon>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20">
+              <g fill="none">
+                <path
+                  d="M4 4c-1.104-.019-2 .896-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4zM3 6a1 1 0 0 1 1-1h2.995v10H4a1 1 0 0 1-1-1V6zm4.995 9V5h8.004a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H7.995z"
+                  fill="currentColor"></path>
+              </g>
+            </svg>
+          </cosy-icon>
+        </cosy-tooltip>
+        
+    </div>
+  </header>
+  <div class="content">
+    <main class="cosy-scrollbar">
+      <div class="article-container">
+        <!-- 渲染文章内容 -->
+        <article>
+          <!-- 文章标题 -->
+          <h1 class="post-title">视觉回归测试</h1>
+          <div class="last-updated">
+            Last updated: 2024-10-25 09:13:54
+          </div>
+          <!-- 文章 -->
+          <h2 id="什么是视觉回归测试？"><a href="#什么是视觉回归测试？" class="headerlink" title="什么是视觉回归测试？"></a>什么是视觉回归测试？</h2><pre><code>在此之前，需要知道另一个概念“回归测试”，它指的是验证我们对源代码的修改不会对系统产生意外的影响。
+那么对于视觉回归测试，它的目标是相同的，但它更关心呈现给最终用户的界面，而不是系统的功能如何。视觉回归测试的目 的是发现视觉上的 &quot;缺陷&quot;，是功能测试工具无法发现的，如错位的按钮、重叠的图像或文本、部分可见的元素和渲染问题等等。
+从本质上讲，视觉回归测试使我们能够通过当前截图和之前图片快照之间进行比较，了解用户将感知到的变化。
+</code></pre>
+<p>在下面的图中（如图 1 所示），人眼就能发现第二例中的网页有视觉缺陷(标题和信息文本重叠，使内容难以辨认)。这些缺陷在功能测试（e2e）中不会被注意到，因为功能测试（e2e）能够找到所有的元素并点击按钮，不管它被放在哪里。像这样的情况会导致用户有非常不愉快的体验，甚至影响可用性。</p>
+<p><img src="/../../public/img/diff1.png"><br>图 1. 视觉缺陷示例</p>
+<h2 id="为什么需要做视觉回归测试？"><a href="#为什么需要做视觉回归测试？" class="headerlink" title="为什么需要做视觉回归测试？"></a>为什么需要做视觉回归测试？</h2><pre><code>我们已经在代码库中写了很多测试，用来覆盖很多业务情况，并给我们的代码库的质量带来一些信心。那么，在项目中引入另一种类型的测试（视觉回归测试）背后的动机是什么呢？
+</code></pre>
+<h3 id="动机一：发现视觉缺陷"><a href="#动机一：发现视觉缺陷" class="headerlink" title="动机一：发现视觉缺陷"></a>动机一：发现视觉缺陷</h3><pre><code>由于我们的业务模块是依赖于组件进行开发，一旦组件内部实现发生变化很容易导致业务模块发生不可预期的视觉缺陷；此外，随着第三方库变更或者组件版本的升级会废弃 API 或者变更 API 使用，如果业务模块未同步更新其内容也容易引发不可预期的视觉缺陷；或者其他种种因素导致的视觉缺陷。
+</code></pre>
+<h3 id="动机二：功能与设计相符"><a href="#动机二：功能与设计相符" class="headerlink" title="动机二：功能与设计相符"></a>动机二：功能与设计相符</h3><pre><code>正如我们所知，一般的功能测试（单元测试等）对于保证业务模块按预期的功能工作是必不可少的。然而，它们并不能保证呈现给用户的界面是可靠的。
+因为这些测试不能捕捉到关于用户体验的问题。并且这些问题对于我们的用户来说也是令人讨厌和阻碍的问题。
+以下图为例，这里有一个「弹窗框」的截图。它可以很容易地通过功能测试，因为就功能而言，它是可以正常工作的；所有我们想要的东西都被渲染了，与按钮绑定的预期动作也正常工作了。
+</code></pre>
+<p><img src="/../../public/img/diff2.png"><br>图 2. 功能测试的缺陷</p>
+<pre><code>然而，当我们关注视觉效果时，这里的最终结果是不理想的（未符合设计预期）。导致不理想的原因，可能是在对全局组件进行 CSS 修改时引入的，这个修改或许只适用于业务模块本地样式，也可能是一些库的版本更新导致的。
+ 对于这个例子，通过视觉回归测试就可以更容易地在用户之前捕捉到这些变化（是否符合预期的变化），从而使得在用户之前可以让设计与功能相符
+</code></pre>
+<h3 id="动机三：视觉变化记录"><a href="#动机三：视觉变化记录" class="headerlink" title="动机三：视觉变化记录"></a>动机三：视觉变化记录</h3><pre><code>通过视觉回归测试，我们也可以很容易地在代码仓库获得一个可视化的变更日志。通过查看快照的历史，可以跟踪界面的每一个视觉变化情况；
+</code></pre>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><pre><code>虽然我们最终使用开源的库实现了一个定制化的方案，但也可以简单地了解一下还有哪些其它方案可选。
+</code></pre>
+<h3 id="付费工具"><a href="#付费工具" class="headerlink" title="付费工具"></a>付费工具</h3><p><a target="_blank" rel="noopener" href="https://percy.io/">Percy</a></p>
+<p>  Percy是视觉回归测试最著名的工具之一，它非常灵活，易于使用。快照变更可由团队审查批准&#x2F;拒绝。适用于业务界面的视觉回归测试。</p>
+<p><a target="_blank" rel="noopener" href="https://www.chromatic.com/">Chromatic</a></p>
+<p>  Chromatic 是由 Storybook 的维护者为Storybook 创建的。它是与Storybook集成的开箱即用的，与 Percy 相比，它有一个非常好的协作式仪表板，在很多方面都非常相似。但适用于组件的视觉回归测试；</p>
+<h3 id="开源工具"><a href="#开源工具" class="headerlink" title="开源工具"></a>开源工具</h3><p>[BackstopJS](<a target="_blank" rel="noopener" href="https://github.com/garris/BackstopJS%EF%BC%89">https://github.com/garris/BackstopJS）</a></p>
+<p>  BackstopJS 是一个非常受欢迎的视觉回归开源项目，维护良好，非常完整和灵活。它生成了一份漂亮的 HTML 可视化报告，其中包含了所发现的差异。与 percy 类似；</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/oblador/loki">Loki</a></p>
+<p>  Loki 是一个非常容易使用的工具，适用于使用 Storybook 的项目。与 chromatic类似，适合组件视觉回归测试；但无可视化报告。</p>
+<h2 id="视觉测试的自动化过程"><a href="#视觉测试的自动化过程" class="headerlink" title="视觉测试的自动化过程"></a>视觉测试的自动化过程</h2><p>  步骤:</p>
+<p><img src="/../../public/img/diff2.png"><br>图 3. 测试过程</p>
+<ol>
+<li>编写测试场景：定义将在屏幕截图中捕获的内容以及从系统中捕获它们的位置。此外，这些场景应该处理任何必要的用户交互。</li>
+<li>在系统中运行测试工具，以便根据先前编写的场景捕获所有屏幕截图。</li>
+<li>通过工具运行一种 diff 算法：将最近捕获的屏幕截图与截图快照进行比较（下图）；参考截图。然后生成一份报告，其中包含在比较中发现的所有差异。</li>
+<li>业务负责人分析报告并确定引入的差异（如果有）是否符合预期（符合设计预期）。如果不符合预期，修复差异，将返回到第 2 步</li>
+<li>引入的差异符合预期时，必须更新参考快照以供将来运行测试。</li>
+</ol>
+<p><img src="/../../public/img/diff3.png"><br>图 4. 测试报告</p>
+<h2 id="视觉回归测试实践"><a href="#视觉回归测试实践" class="headerlink" title="视觉回归测试实践"></a>视觉回归测试实践</h2><pre><code>要使上述内容发挥作用，需要很多不同的部分。下面，将介绍一些需要的工具和策略，以及在建立一个定制化的视觉测试解决方案时可能遇到的一些问题。最后，会考虑一些潜在的下一步行动。
+</code></pre>
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><pre><code>我们的代码库中添加视觉回归测试时，会遇到的第一件事就是测试运行的环境。因为在所有的操作系统中，字体和颜色的呈现方式是不一样的。这种差异足以让像素差异算法认为在每个操作系统中生成的图像是不兼容的，即使它们渲染的是相同的底层源代码。其结果是：如果有人在 Mac 上运行测试用例并生成的快照，但是在Windows 或 Linux 上运行视觉回归测试时，所有的测试可能都会失败（下图）
+</code></pre>
+<p><img src="/../../public/img/diff4.png"><br>图 5. 不同操作系统的差异</p>
+<pre><code>那么要解决上图中的字体渲染不一样的问题，可行的方案是始终在相同的环境中运行测试，这也就意味着我们会采用在 Docker 容器中运行测试方式，使得每次进行视觉回归测试时的环境是相同的；
+</code></pre>
+<h3 id="Cypress"><a href="#Cypress" class="headerlink" title="Cypress"></a>Cypress</h3><pre><code>借助 Cypress，可以轻松地为我们的项目创建视觉回归测试用例。例如可以利用它模拟用户操作进入对应的业务界面
+</code></pre>
+<h3 id="截图尺寸"><a href="#截图尺寸" class="headerlink" title="截图尺寸"></a>截图尺寸</h3><pre><code>图片的大小也是我们需要重点考虑的事情之一，在项目中常见使用的页面设计是 1440 * 900 ,所以一般会根据设计图的尺寸进行设置为截图的尺寸为 1440 * 900；也就是对浏览器设置为window size: 1440 * 900 ，然后对页面进行全页面进行截图；
+</code></pre>
+<h3 id="确定性"><a href="#确定性" class="headerlink" title="确定性"></a>确定性</h3><pre><code>对于视觉回归测试来说，每次测试的结果它应该是确定性的。如果在具有相同输入的相同环境中运行，它们应该产生相同的结果。然而，即使在确定了一致的环境之后，UI 界面中也可能存在导致每次测试结果的不同因素。显然，当测试运行时，我们不希望这类因素成为测试未通过的原因。
+</code></pre>
+<p>以下列举了在快照中产生不稳定的几个主要因素：</p>
+<ul>
+<li>动画<ul>
+<li>如果有任何使用动画的组件，将要cypress 蒙版功能忽略它或者关闭它们。避免其影响视觉回归测试；</li>
+</ul>
+</li>
+<li>异步数据<ul>
+<li>在测试需要交互的组件时，经常需要等待异步数据，然后才能继续进行交互的下一步。<ul>
+<li>有时候为了简单方便会使用 wait 预估的时间方式。这是不推荐的方式，因为随着时间的推移，这些等待时间会累积起来，会使测试运行速度慢得令人难以忍受。</li>
+<li>更好的方法是等待异步数据上加断言，并等待断言通过。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>动态随机数据<ul>
+<li>在 mocking 环境中，很有可能会出现随机数字或者随机布尔类型对应的界面显示；<ul>
+<li>对于随机的数字或布尔值，需要保证在 mocking 中是一个固定不变的或者使用 cypress 蒙版功能忽略它们；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="开发人员用户体验"><a href="#开发人员用户体验" class="headerlink" title="开发人员用户体验"></a>开发人员用户体验</h3><pre><code>在此，我们可能需要思考🤔️几个问题？
+</code></pre>
+<ol>
+<li>消息同步对于我们来说是十分重要的。如果某个时间测试出现了问题，但是没有及时的消息同步，或许要很长一段时间才能发现该问题；这其实对于我们开发人员来说是不友好的，因为我们不能及时响应错误，会导致问题持续下去；<br>1. 因此我们会引入 「飞书机器人🤖️」通知，将测试的错误信息第一时间反馈到工作群；从而我们可以做到快速响应错误，并进行响应错误的动作处理；</li>
+<li>当视觉回归测试失败时，我们该怎么定位问题呢？<br>1. 首先，我们第一直觉最想做的必然是能够访问 CI 环境，因为这样可以阅读测试运行的输出；但很多情况下，即使知道哪些测试失败也不是特别有用，因为它并不能给我们带来更加直观的信息用于判断具体是哪里的问题。<br>2. 因此，我们需要可视化的测试报告，帮助我们去定位视觉缺陷的具体原因；</li>
+<li>我们项目中已经拥有了 e2e 测试路径，如果加入视觉回归测试是否会带来一些编写页面操作场景的重复工作呢？<br>1. 不会，视觉回归测试它可以加入到任何一个 e2e 测试路径中，这样可以减少我们编写测试用例的成本；<br>2. 当然，我们也可以单独编写视觉回归测试用例，这样可以减少 e2e 的逻辑复杂性；<ol>
+<li>对于这部分，我们可以充分的利用 Cypress Studio 的自动化功能，快速帮我们自动编写测试用例；</li>
+</ol>
+</li>
+</ol>
+<h2 id="未来研究"><a href="#未来研究" class="headerlink" title="未来研究"></a>未来研究</h2><h3 id="Figma"><a href="#Figma" class="headerlink" title="Figma"></a>Figma</h3><pre><code>视觉回归测试虽然很大程度上已经帮助我们回归视觉缺陷问题。但如果能够将 figma 设计稿与开发者界面最终实现进行视觉回归的话，它就能达成「design - code - test」自动闭环的理想预期；
+</code></pre>
+<p>那么我们要做到这一点，可能会有很长一段路要走；比如：</p>
+<ul>
+<li>研究 Figma 设计稿以何种形式与我们的界面实现进行比较？</li>
+<li>研究 Figma 设计稿如何保证与开发者的 mocking 环境对齐？</li>
+<li>研究 Figma 的设计稿字体如何保证与 docker linux  环境一致？</li>
+</ul>
+<h3 id="速度问题"><a href="#速度问题" class="headerlink" title="速度问题"></a>速度问题</h3><pre><code>视觉回归测试是 CLI 中运行时间比较长的任务，每个用例为测试运行至少增加了大约20 ～ 30 秒。虽然这可能与 e2e 任务一起运行的，但如果能将这一时间减半或四分之一，那就更理想了。要做到这一点，我们需要研究视觉回归测试中哪些因素会增加运行时间，从而不断的优化视觉回归测试的执行时间；
+</code></pre>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><pre><code>视觉回归测试的快照目前给我们的 Git 仓库增加了大约 3.4 MB 存储占用，而存储大量图片可能会导致 Git 仓库变得臃肿？因为占用大量磁盘空间，使仓库复制和克隆操作变得缓慢。此外，每次提交或拉取时，Git 需要比较每个文件的内容，包括大量图片，会大大降低执行速度；
+</code></pre>
+<p>因此随着项目的发展，我们可能需要考虑使用 Git LFS 来管理大文件内容。</p>
+<p>感谢阅读📖！</p>
+
+            <div class="post-tags">
+              <!-- 文章tags -->
+              
+            </div>
+            <p class="motto"></p>
+        </article>
+        <!-- 评论 -->
+        <div id="vcomments"></div>
+        <div id="tcomment"></div>
+      </div>
+    </main>
+    <!-- toc -->
+    
+      <cosy-drag-box id="toc-drag-box" trigger="left" min-width="220" uid="toc-box">
+        <div class="meta-container">
+          <div class="toc-wrapper cosy-scrollbar">
+            <cosy-tooltip placement="right">
+              <p class="catalog">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16"></path>
+                    <path d="M4 12h16"></path>
+                    <path d="M4 18h12"></path>
+                  </g>
+                </svg>
+                <span>Catalog</span>
+              </p>
+              <span slot="content">
+                <span>Hide Table of Contents</span>
+                <cosy-short-key>]</cosy-short-key>
+              </span>
+            </cosy-tooltip>
+            <!-- 文章toc -->
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%86%E8%A7%89%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是视觉回归测试？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%81%9A%E8%A7%86%E8%A7%89%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">为什么需要做视觉回归测试？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA%E4%B8%80%EF%BC%9A%E5%8F%91%E7%8E%B0%E8%A7%86%E8%A7%89%E7%BC%BA%E9%99%B7"><span class="toc-number">2.1.</span> <span class="toc-text">动机一：发现视觉缺陷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA%E4%BA%8C%EF%BC%9A%E5%8A%9F%E8%83%BD%E4%B8%8E%E8%AE%BE%E8%AE%A1%E7%9B%B8%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">动机二：功能与设计相符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA%E4%B8%89%EF%BC%9A%E8%A7%86%E8%A7%89%E5%8F%98%E5%8C%96%E8%AE%B0%E5%BD%95"><span class="toc-number">2.3.</span> <span class="toc-text">动机三：视觉变化记录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%98%E8%B4%B9%E5%B7%A5%E5%85%B7"><span class="toc-number">3.1.</span> <span class="toc-text">付费工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7"><span class="toc-number">3.2.</span> <span class="toc-text">开源工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E8%A7%89%E6%B5%8B%E8%AF%95%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">视觉测试的自动化过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E8%A7%89%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E5%AE%9E%E8%B7%B5"><span class="toc-number">5.</span> <span class="toc-text">视觉回归测试实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker"><span class="toc-number">5.1.</span> <span class="toc-text">Docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cypress"><span class="toc-number">5.2.</span> <span class="toc-text">Cypress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%AA%E5%9B%BE%E5%B0%BA%E5%AF%B8"><span class="toc-number">5.3.</span> <span class="toc-text">截图尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E6%80%A7"><span class="toc-number">5.4.</span> <span class="toc-text">确定性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="toc-number">5.5.</span> <span class="toc-text">开发人员用户体验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E7%A0%94%E7%A9%B6"><span class="toc-number">6.</span> <span class="toc-text">未来研究</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Figma"><span class="toc-number">6.1.</span> <span class="toc-text">Figma</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-number">6.2.</span> <span class="toc-text">速度问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git"><span class="toc-number">6.3.</span> <span class="toc-text">Git</span></a></li></ol></li></ol>
+          </div>
+        </div>
+      </cosy-drag-box>
+      
+  </div>
+
+</div>
+
+<script>
+  window.page = {
+    use: 'katex,mermaid,valine'
+  }
+  window.katex = {
+    enable: "",
+    jsCdn: "//cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js",
+    cssCdn: "//cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css"
+  }
+  window.mermaid = {
+    enable: "",
+    theme: "",
+    cdn: "//cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js",
+  }
+  window.valine = {
+    enable: "",
+    appId: 'mxk96wUESBFgB3CEmMRJE1qr-gzGzoHsz',
+    appKey: '6zaYb3Ita380GoUqsqMbKxPv',
+    avatar: 'monsterid',
+    cdn: '//unpkg.com/valine@latest/dist/Valine.min.js',
+    serverURLs: 'https://mxk96wue.lc-cn-n1-shared.com'
+  };
+  window.twikoo = {
+    enable: "",
+    envId: "yourTwikooEnvId",
+    cdn: 'https://cdn.staticfile.org/twikoo/1.6.32/twikoo.all.min.js',
+    lang: 'zh-CN',
+  }
+</script>
+
+
+<script src="/js/8f5fa89f.js"></script>
+
+  </main>
+</body>
+
+<script>
+  window.theme = {
+    color: 'hsl(238,50%,56%)'
+  }
+</script>
+
+
+<script src="/js/e5a59732.js"></script>
+
+
+</html>
